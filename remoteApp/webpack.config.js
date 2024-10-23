@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
-const dependencies = require("./package.json");
+const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = {
   entry: "./src/index",
@@ -8,7 +8,6 @@ module.exports = {
   devServer: {
     static: path.join(__dirname, "dist"),
     port: 3000,
-    allowedHosts: ["r47wsx-3001.csb.app", "r47wsx-3000.csb.app"],
   },
   output: {
     publicPath: "auto",
@@ -29,11 +28,15 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "remote",
       filename: "remoteEntry.js",
-      remotes: {
-        host: "host@https://r47wsx-3001.csb.app/host.remoteEntry.js",
-      },
+      // remotes: {
+      //   host: "host@http://localhost:3001/host.remoteEntry.js",
+      // },
       exposes: {
-        "./Button": "./src/components/Button",
+        "./Button": "./src/Button",
+      },
+      shared: {
+        react: { singleton: true, eager: true },
+        'react-dom': { singleton: true, eager: true },
       },
     }),
     new HtmlWebpackPlugin({

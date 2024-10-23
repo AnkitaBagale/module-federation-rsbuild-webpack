@@ -1,12 +1,14 @@
-import { dependencies } from "./package.json";
-
 export const mfConfig = {
   name: "host",
-  filename: "host.remoteEntry.js",
+  // filename: "host.remoteEntry.js",
   remotes: {
-    remote: "remote@https://r47wsx-3000.csb.app/remoteEntry.js",
+    remote: "remote@http://localhost:3000/remoteEntry.js",
   },
-  exposes: {
-    "/Tab": "./src/Tab",
+  // exposes: {
+  //   "/Tab": "./src/Tab",
+  // },
+  shared: {
+    react: { singleton: true, eager: true },
+    'react-dom': { singleton: true, eager: true },
   },
 };

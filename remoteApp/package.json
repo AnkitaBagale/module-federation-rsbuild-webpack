@@ -8,9 +8,8 @@
     "react-scripts": "5.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "webpack-start": "webpack serve",
-    "build": "react-scripts build"
+    "start": "webpack serve",
+    "build": "webpack --mode production"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
