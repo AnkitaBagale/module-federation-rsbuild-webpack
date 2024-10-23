@@ -1,8 +1,8 @@
 export const mfConfig = {
-  name: "host",
-  // filename: "host.remoteEntry.js",
+  name: "app1",
+  // filename: "app1.remoteEntry.js",
   remotes: {
-    remote: "remote@http://localhost:3000/remoteEntry.js",
+    remote: "app2@http://localhost:3000/app2.remoteEntry.js",
   },
   // exposes: {
   //   "/Tab": "./src/Tab",

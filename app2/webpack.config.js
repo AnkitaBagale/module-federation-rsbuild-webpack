@@ -26,10 +26,10 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "remote",
-      filename: "remoteEntry.js",
+      name: "app2",
+      filename: "app2.remoteEntry.js",
       // remotes: {
-      //   host: "host@http://localhost:3001/host.remoteEntry.js",
+      //   app1: "app1@http://localhost:3001/app1.remoteEntry.js",
       // },
       exposes: {
         "./Button": "./src/Button",

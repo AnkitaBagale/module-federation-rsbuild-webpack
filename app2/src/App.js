@@ -5,7 +5,7 @@ import React from "react";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">Remote app</header>
+      <header className="App-header">App2</header>
       {/* <RemoteTab /> */}
     </div>
   );
