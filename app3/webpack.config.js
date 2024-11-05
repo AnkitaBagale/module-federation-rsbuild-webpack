@@ -4,11 +4,11 @@ const { dependencies } = require("./package.json");
 const { ModuleFederationPlugin } = require("webpack").container;
 
 module.exports = {
-  entry: path.resolve('src', 'index.js'),
+  entry: "./src/index",
   mode: "development",
   devServer: {
     static: path.join(__dirname, "dist"),
-    port: 3000,
+    port: 3002,
   },
   output: {
     publicPath: "auto",
@@ -27,13 +27,13 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "app2",
-      filename: "app2.remoteEntry.js",
+      name: "app3",
+      filename: "app3.remoteEntry.js",
       remotes: {
-        app3: "app3@http://localhost:3002/app3.remoteEntry.js",
+        app2: "app2@http://localhost:3000/app2.remoteEntry.js",
       },
       exposes: {
-        "./Button": "./src/Button",
+        './Main': './src/App',
       },
       shared: {
         react: { singleton: true, requiredVersion: dependencies.react },
