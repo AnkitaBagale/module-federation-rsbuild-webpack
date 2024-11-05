@@ -3,12 +3,13 @@ export const mfConfig = {
   filename: "app1.remoteEntry.js",
   remotes: {
     app2: "app2@http://localhost:3000/app2.remoteEntry.js",
+    // x: 'x@https://localhost:8080/dist/x.remoteEntry.js'
   },
-  exposes: {
-    "./Tab": "./src/Tab",
-  },
+  // exposes: {
+  //   "./Tab": "./src/Tab",
+  // },
   shared: {
-    react: { singleton: true, eager: true },
-    'react-dom': { singleton: true, eager: true },
+    react: { singleton: true },
+    'react-dom': { singleton: true },
   },
 };

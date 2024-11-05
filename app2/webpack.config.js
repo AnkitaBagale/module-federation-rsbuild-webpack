@@ -28,15 +28,16 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "app2",
       filename: "app2.remoteEntry.js",
-      remotes: {
-        app1: "app1@http://localhost:3001/app1.remoteEntry.js",
-      },
+      // remotes: {
+      //   // app1: "app1@http://localhost:3001/app1.remoteEntry.js",
+      //       x: 'x@https://localhost:8080/dist/x.remoteEntry.js',
+      // },
       exposes: {
         "./Button": "./src/Button",
       },
       shared: {
-        react: { singleton: true, eager: true },
-        'react-dom': { singleton: true, eager: true },
+        react: { singleton: true, requiredVersion: '^17.0.2' },
+        'react-dom': { singleton: true, requiredVersion: '^17.0.2' },
       },
     }),
     new HtmlWebpackPlugin({
